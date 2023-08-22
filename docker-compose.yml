@@ -1,5 +1,6 @@
 --- # docker compose to build full stack app
-version: "3.8"
+# previous version: "3.8"
+version: "3.7"
 
 services:
   db:

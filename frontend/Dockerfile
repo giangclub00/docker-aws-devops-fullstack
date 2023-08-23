@@ -1,6 +1,7 @@
 FROM node:14.16.1-alpine3.13
 
-RUN npm install -g @angular/cli@11.2.12
+RUN npm install -g @angular/cli
+RUN ng update | awk -v re='@[[:alnum:]]' '$0 ~ re {printf $1 " "}' | xargs ng update --force=true && npm update
 
 RUN addgroup app && adduser -S -G app app
 RUN mkdir /app && chown app:app /app

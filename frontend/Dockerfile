@@ -1,6 +1,7 @@
 FROM node:14.16.1-alpine3.13
 
-RUN npm install -g @angular/cli@11.2.12
+RUN npm install -g @angular/cli
+RUN ng update @angular/cli @angular/core    
 
 RUN addgroup app && adduser -S -G app app
 RUN mkdir /app && chown app:app /app

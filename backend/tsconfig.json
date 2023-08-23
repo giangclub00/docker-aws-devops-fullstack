@@ -6,6 +6,5 @@
     "strict": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    "types": ["ts-node"]
   }
 }

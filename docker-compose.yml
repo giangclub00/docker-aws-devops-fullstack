@@ -21,7 +21,6 @@ services:
     volumes:
       - ./backend:/app
   backend-tests:
-    image: full-stack-app-dockerize-backend
     environment:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses

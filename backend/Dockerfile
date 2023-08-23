@@ -2,6 +2,7 @@ FROM node:14.16.1-alpine3.13
 
 RUN npm install -g ts-node
 RUN npm install -g nodemon
+RUN npm i typescript -g
 
 RUN addgroup app && adduser -S -G app app
 RUN mkdir /app && chown app:app /app

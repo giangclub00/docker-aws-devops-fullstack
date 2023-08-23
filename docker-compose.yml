@@ -19,20 +19,20 @@ services:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses
     volumes:
-      - ./backend:/app/data
+      - ./backend:/app
   backend-tests:
     image: full-stack-app-dockerize-backend
     environment:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses
     volumes:
-      - ./backend:/app/data
+      - ./backend:/app
     command: npm test
   frontend:
     build: ./frontend
     ports:
       - 4200:4200
     volumes:
-      - ./frontend:/app/data
+      - ./frontend:/app
 volumes:
   tedu-courses:

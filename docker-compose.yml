@@ -3,36 +3,36 @@
 version: "3.7"
 
 services:
-  # db:
-  #   image: mongo:4.0-xenial
-  #   ports:
-  #     - 27017:27017
-  #   volumes: 
-  #     - tedu-courses:/data/db
+  db:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes: 
+      - tedu-courses:/data/db
   backend:
     build: ./backend
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     ports:
       - 80:80
     environment:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses
     volumes:
-      - ./backend:/app
+      - ./backend:/app/data
   backend-tests:
     image: full-stack-app-dockerize-backend
     environment:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses
     volumes:
-      - ./backend:/app
+      - ./backend:/app/data
     command: npm test
   frontend:
     build: ./frontend
     ports:
       - 4200:4200
     volumes:
-      - ./frontend:/app
+      - ./frontend:/app/data
 volumes:
   tedu-courses:

@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     ports:
-      - 3000:3000
+      - 80:80
     environment:
       DB_CONNECTION_STRING: mongodb://db
       DB_NAME: tedu-courses
